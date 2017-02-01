@@ -1,29 +1,25 @@
 #!/usr/bin/env python
 
-#---------------------------------------------------------
-#importing libraries
-#---------------------------------------------------------
+#import libraries
 import tweepy
 
-#-----------------------------------------------------------------
-# Variables that contains the user credentials to access Twitter API
-# Go to dev.twitter.com, using your twitter account, to obtain API keys and tokens
-# it is not good practice to put your keys in your code. And it's terrible practice to upload them anywhere (like github)
-# Check the restauth.py script for example of how to set up a config file for credentials
-#-----------------------------------------------------------------
-
+# Create variables that contain your user credentials 
+# To obtain these credentials (keys and tokens), go to apps.twitter.com
+# NOTE: it is not good practice to put your keys in your code. And it's terrible practice to upload them anywhere (like github)
+# Check the restauth.py script for an example of how to set up a separate config file for credentials
 consumer_key = 'yourconsumerkey'
 consumer_secret = 'yourconsumersecret'
 access_key = 'youraccesskey'
 access_secret = 'youraccesssecret'
 
-#authorize twitter, initialize tweepy
+#authorize, initialize tweepy
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_key, access_secret)
 api = tweepy.API(auth)
 
-result_count = 0 # we're going to count the results
+result_count = 0 # we're going to count the results, so, we're setting our counter to zero
 
+# for every tweet returned from this query, do...print to screen the following and increase result_count
 for tweet in tweepy.Cursor(api.search, q = "skating, toronto, -RT").items(): #for every tweet returned from this query
 		print('Name: ' + tweet.author.name.encode('utf-8') + '\n') #print the author's name, converted to UTF-8, with line break...
 		print('Screen Name: ' + tweet.author.screen_name.encode('utf-8') + '\n')
