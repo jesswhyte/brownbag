@@ -1,4 +1,4 @@
-This repository contains example code from the ACM Brown Bag lunch workshop - Accessing the Twitter API with python. 
+This repository contains example code from the ACM Brown Bag lunch workshop 'Accessing the Twitter API with Python', hosted at Semaphore Studio 307 by me.
 
 The files are as follows:
 
